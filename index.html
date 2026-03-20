@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoTecha – Cosecha + Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gd: #1a3a2a; --gm: #2d6a4f; --g: #40916c; --gl: #74c69d;
+      --gp: #d8f3dc; --ta: #00b4d8; --gold: #f4a261;
+      --ow: #f8fdf9; --td: #1b2d24; --tm: #5a7a68;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--ow); color: var(--td); overflow-x: hidden; }
+
+    /* NAV */
+    nav { position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;background:rgba(26,58,42,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(116,198,157,0.2); }
+    .nl { display:flex;align-items:center;gap:10px;text-decoration:none; }
+    .ni { width:38px;height:38px;background:linear-gradient(135deg,var(--gl),var(--ta));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px; }
+    .nt { color:#fff;font-size:1.3rem;font-weight:800; } .nt span { color:var(--gl); }
+    nav ul { display:flex;gap:28px;list-style:none; }
+    nav ul a { color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s; }
+    nav ul a:hover { color:var(--gl); }
+    .ncta { background:linear-gradient(135deg,var(--g),var(--ta));color:#fff !important;padding:8px 20px;border-radius:25px;font-weight:600 !important; }
+
+    /* HERO */
+    .hero { min-height:100vh;background:radial-gradient(ellipse at 70% 50%,rgba(0,180,216,.12) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(64,145,108,.2) 0%,transparent 50%),linear-gradient(160deg,var(--gd) 0%,#0d2418 50%,#061a2e 100%);display:flex;align-items:center;padding:100px 6% 60px;position:relative;overflow:hidden; }
+    .hero::before { content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(116,198,157,.15) 1px,transparent 0);background-size:40px 40px;pointer-events:none; }
+    .par { position:absolute;border-radius:50%;animation:fl 6s ease-in-out infinite;pointer-events:none; }
+    .p1{width:200px;height:200px;top:10%;right:15%;background:radial-gradient(circle,rgba(116,198,157,.15),transparent);}
+    .p2{width:120px;height:120px;bottom:20%;right:25%;background:radial-gradient(circle,rgba(0,180,216,.2),transparent);animation-delay:2s;}
+    .p3{width:80px;height:80px;top:40%;left:5%;background:radial-gradient(circle,rgba(244,162,97,.15),transparent);animation-delay:4s;}
+    @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+    .hc { max-width:620px;position:relative;z-index:2; }
+    .hbadge { display:inline-flex;align-items:center;gap:8px;background:rgba(116,198,157,.15);border:1px solid rgba(116,198,157,.3);color:var(--gl);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:.5px;margin-bottom:28px;text-transform:uppercase; }
+    h1 { font-size:clamp(2.6rem,5vw,4rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:16px; }
+    .hl { background:linear-gradient(90deg,var(--gl),var(--ta));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+    .hs { font-size:1.1rem;font-weight:600;color:var(--gold);margin-bottom:20px; }
+    .hd { font-size:1rem;line-height:1.7;color:rgba(255,255,255,.72);margin-bottom:40px; }
+    .hbtns { display:flex;gap:16px;flex-wrap:wrap; }
+    .bp { display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--g),var(--ta));color:#fff;text-decoration:none;padding:14px 30px;border-radius:50px;font-size:1rem;font-weight:700;box-shadow:0 8px 30px rgba(64,145,108,.4);transition:transform .2s,box-shadow .2s; }
+    .bp:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(64,145,108,.5);}
+    .bs { display:inline-flex;align-items:center;background:transparent;border:1.5px solid rgba(116,198,157,.5);color:var(--gl);text-decoration:none;padding:14px 30px;border-radius:50px;font-size:1rem;font-weight:600;transition:background .2s; }
+    .bs:hover{background:rgba(116,198,157,.1);}
+    .hv { position:absolute;right:4%;top:50%;transform:translateY(-50%);width:min(500px,44vw);z-index:2; }
+    .dm { background:rgba(255,255,255,.05);border:1px solid rgba(116,198,157,.2);border-radius:20px;backdrop-filter:blur(10px);padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.4); }
+    .dh { display:flex;align-items:center;gap:8px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(116,198,157,.15); }
+    .dd{width:10px;height:10px;border-radius:50%;} .dt{color:rgba(255,255,255,.6);font-size:.75rem;font-weight:600;margin-left:auto;letter-spacing:.5px;}
+    .dg { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px; }
+    .dc { background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px; }
+    .dcl{color:rgba(255,255,255,.4);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+    .dcv{color:#fff;font-size:1.2rem;font-weight:800;} .dcv span{color:var(--gl);font-size:.72rem;margin-left:3px;}
+    .dbr{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+    .dbl{color:rgba(255,255,255,.45);font-size:.68rem;width:78px;flex-shrink:0;}
+    .dbt{flex:1;height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;}
+    .dbf{height:100%;border-radius:3px;}
+
+    /* STATS */
+    .ss { background:var(--gd);border-top:1px solid rgba(116,198,157,.15);border-bottom:1px solid rgba(116,198,157,.15);padding:28px 6%;display:flex;justify-content:center;gap:60px;flex-wrap:wrap; }
+    .si{text-align:center;} .sn{font-size:2rem;font-weight:900;color:var(--gl);line-height:1;} .sl{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:4px;}
+
+    /* FEATURES */
+    .features { padding:100px 6%; }
+    .stag { display:inline-block;background:var(--gp);color:var(--gm);padding:5px 14px;border-radius:20px;font-size:.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px; }
+    .stit { font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;line-height:1.2;margin-bottom:12px; }
+    .ssub { font-size:.98rem;color:var(--tm);max-width:520px;line-height:1.65;margin-bottom:52px; }
+    .fg { display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px; }
+    .fc { background:#fff;border:1px solid #e2f0e8;border-radius:20px;padding:30px;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden; }
+    .fc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g),var(--ta));transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+    .fc:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(64,145,108,.12);border-color:var(--gl);}
+    .fc:hover::before{transform:scaleX(1);}
+    .fi{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;}
+    .fc h3{font-size:1.05rem;font-weight:700;margin-bottom:9px;} .fc p{font-size:.9rem;line-height:1.65;color:var(--tm);}
+    .ftags{display:flex;flex-wrap:wrap;gap:5px;margin-top:16px;} .ftag{background:var(--gp);color:var(--gm);padding:3px 9px;border-radius:9px;font-size:.7rem;font-weight:600;}
+
+    /* HOW */
+    .how { background:linear-gradient(135deg,var(--gd) 0%,#0d2418 100%);padding:100px 6%;position:relative;overflow:hidden; }
+    .how::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(116,198,157,.08) 1px,transparent 0);background-size:50px 50px;}
+    .how .stag{background:rgba(116,198,157,.15);color:var(--gl);}
+    .how .stit{color:#fff;} .how .ssub{color:rgba(255,255,255,.6);}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:30px;position:relative;z-index:2;}
+    .step{text-align:center;}
+    .stn{width:58px;height:58px;background:linear-gradient(135deg,var(--g),var(--ta));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;color:#fff;margin:0 auto 14px;box-shadow:0 8px 24px rgba(64,145,108,.4);}
+    .step h3{color:#fff;font-size:1rem;font-weight:700;margin-bottom:7px;} .step p{color:rgba(255,255,255,.55);font-size:.86rem;line-height:1.6;}
+
+    /* PRICING */
+    .pricing{padding:100px 6%;background:var(--ow);}
+    .plans{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+    .plan{background:#fff;border:1.5px solid #e2f0e8;border-radius:24px;padding:34px 30px;width:295px;transition:transform .25s,box-shadow .25s;}
+    .plan:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(64,145,108,.12);}
+    .plan.feat{border-color:var(--g);background:linear-gradient(160deg,#f0faf4 0%,#fff 100%);box-shadow:0 16px 48px rgba(64,145,108,.15);position:relative;}
+    .pb{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--g),var(--ta));color:#fff;padding:4px 16px;border-radius:20px;font-size:.72rem;font-weight:700;white-space:nowrap;}
+    .pn{font-size:.95rem;font-weight:700;color:var(--tm);margin-bottom:4px;}
+    .pp{font-size:2.2rem;font-weight:900;color:var(--td);line-height:1;margin-bottom:3px;} .pp sup{font-size:1rem;vertical-align:top;margin-top:7px;}
+    .ppr{font-size:.8rem;color:var(--tm);margin-bottom:22px;}
+    .plan ul{list-style:none;margin-bottom:26px;}
+    .plan ul li{display:flex;align-items:flex-start;gap:7px;font-size:.86rem;color:var(--tm);margin-bottom:9px;line-height:1.4;}
+    .plan ul li::before{content:'✓';color:var(--g);font-weight:700;flex-shrink:0;margin-top:1px;}
+    .plb{display:block;text-align:center;text-decoration:none;padding:11px;border-radius:50px;font-weight:700;font-size:.88rem;border:1.5px solid var(--g);color:var(--g);transition:background .2s,color .2s;}
+    .plan.feat .plb{background:linear-gradient(135deg,var(--g),var(--ta));color:#fff;border:none;box-shadow:0 8px 24px rgba(64,145,108,.3);}
+    .plb:hover{background:var(--g);color:#fff;} .plan.feat .plb:hover{opacity:.9;}
+
+    /* CONTACT */
+    .contact{padding:100px 6%;background:#fff;}
+    .cw{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+    .ci h2{font-size:clamp(1.8rem,2.5vw,2.3rem);font-weight:800;margin-bottom:14px;} .ci p{color:var(--tm);line-height:1.7;margin-bottom:28px;}
+    .cit{display:flex;align-items:center;gap:13px;padding:14px 18px;background:var(--ow);border:1px solid #e2f0e8;border-radius:14px;margin-bottom:11px;text-decoration:none;color:var(--td);transition:border-color .2s,box-shadow .2s;}
+    .cit:hover{border-color:var(--gl);box-shadow:0 4px 16px rgba(64,145,108,.1);}
+    .citx{width:40px;height:40px;border-radius:9px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .citl{font-size:.72rem;color:var(--tm);font-weight:600;} .citv{font-size:.92rem;font-weight:700;}
+    .cf{background:var(--ow);border:1.5px solid #e2f0e8;border-radius:24px;padding:34px;}
+    .cf h3{font-size:1.25rem;font-weight:800;margin-bottom:22px;}
+    .fg2{margin-bottom:16px;} .fg2 label{display:block;font-size:.8rem;font-weight:600;margin-bottom:5px;}
+    .fg2 input,.fg2 textarea,.fg2 select{width:100%;padding:11px 15px;border:1.5px solid #dde8e0;border-radius:10px;font-family:inherit;font-size:.9rem;background:#fff;color:var(--td);outline:none;transition:border-color .2s,box-shadow .2s;}
+    .fg2 input:focus,.fg2 textarea:focus,.fg2 select:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(64,145,108,.1);}
+    .fg2 textarea{resize:vertical;min-height:105px;}
+    .fr2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+    .fsub{width:100%;padding:13px;background:linear-gradient(135deg,var(--g),var(--ta));color:#fff;border:none;border-radius:50px;font-size:.97rem;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s;box-shadow:0 8px 24px rgba(64,145,108,.3);}
+    .fsub:hover{opacity:.9;transform:translateY(-1px);}
+    .fok{display:none;text-align:center;padding:20px;color:var(--gm);font-weight:600;font-size:1rem;}
+
+    footer{background:var(--gd);padding:44px 6% 28px;text-align:center;border-top:1px solid rgba(116,198,157,.15);}
+    .flogo{font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:5px;} .flogo span{color:var(--gl);}
+    .fsl{color:var(--gold);font-size:.85rem;font-weight:600;margin-bottom:16px;} footer p{color:rgba(255,255,255,.3);font-size:.77rem;}
+
+    @media(max-width:900px){.hv{display:none;}.cw{grid-template-columns:1fr;}.fr2{grid-template-columns:1fr;}nav ul{display:none;}.ss{gap:32px;}}
+    @media(max-width:600px){.hero,.features,.how,.pricing,.contact{padding-left:5%;padding-right:5%;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nl" href="#">
+    <div class="ni">🌿</div>
+    <div class="nt">Co<span>Techa</span></div>
+  </a>
+  <ul>
+    <li><a href="#features">Funciones</a></li>
+    <li><a href="#como">Cómo funciona</a></li>
+    <li><a href="#planes">Planes</a></li>
+    <li><a href="#contacto" class="ncta">Contactar</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="par p1"></div><div class="par p2"></div><div class="par p3"></div>
+  <div class="hc">
+    <div class="hbadge">🌱 Tecnología Agrícola Digital</div>
+    <h1>La plataforma que <span class="hl">digitaliza</span> tu explotación agrícola</h1>
+    <p class="hs">🌾 Cosecha + Tech — Cosechando tecnología</p>
+    <p class="hd">Gestiona semilleros, ensayos, registros horarios, ventas, gastos y stock desde un único lugar. Simple, potente y hecho para el campo.</p>
+    <div class="hbtns">
+      <a href="#contacto" class="bp">🚀 Empezar gratis</a>
+      <a href="#features" class="bs">Ver funciones →</a>
+    </div>
+  </div>
+  <div class="hv">
+    <div class="dm">
+      <div class="dh">
+        <div class="dd" style="background:#ff5f57"></div>
+        <div class="dd" style="background:#febc2e"></div>
+        <div class="dd" style="background:#28c840"></div>
+        <div class="dt">COTECHA DASHBOARD</div>
+      </div>
+      <div class="dg">
+        <div class="dc"><div class="dcl">🌱 Semilleros</div><div class="dcv">24 <span>+3 semana</span></div></div>
+        <div class="dc"><div class="dcl">📦 Stock</div><div class="dcv">1.840 <span>uds</span></div></div>
+        <div class="dc"><div class="dcl">💶 Ventas</div><div class="dcv">12.4k <span>€</span></div></div>
+        <div class="dc"><div class="dcl">🕐 Horas</div><div class="dcv">148 <span>h</span></div></div>
+      </div>
+      <div>
+        <div class="dbr"><div class="dbl">Tomate cherry</div><div class="dbt"><div class="dbf" style="width:82%;background:linear-gradient(90deg,#40916c,#00b4d8)"></div></div></div>
+        <div class="dbr"><div class="dbl">Pimiento rojo</div><div class="dbt"><div class="dbf" style="width:65%;background:linear-gradient(90deg,#f4a261,#e76f51)"></div></div></div>
+        <div class="dbr"><div class="dbl">Lechuga romana</div><div class="dbt"><div class="dbf" style="width:48%;background:linear-gradient(90deg,#74c69d,#52b788)"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ss">
+  <div class="si"><div class="sn">+200</div><div class="sl">Agricultores activos</div></div>
+  <div class="si"><div class="sn">6</div><div class="sl">Módulos integrados</div></div>
+  <div class="si"><div class="sn">100%</div><div class="sl">En la nube</div></div>
+  <div class="si"><div class="sn">24/7</div><div class="sl">Acceso desde cualquier dispositivo</div></div>
+</div>
+
+<section class="features" id="features">
+  <div class="stag">Nuestras funciones</div>
+  <h2 class="stit">Todo lo que tu explotación necesita,<br>en un solo lugar</h2>
+  <p class="ssub">CoTecha digitaliza los procesos clave del campo para que ahorres tiempo, reduzcas errores y tomes mejores decisiones.</p>
+  <div class="fg">
+    <div class="fc"><div class="fi" style="background:#e8f8f0">🌱</div><h3>Partidas de Semillero</h3><p>Registra y controla cada partida: especie, variedad, fecha de siembra, estado y evolución. Trazabilidad completa desde el origen.</p><div class="ftags"><span class="ftag">Trazabilidad</span><span class="ftag">Semilleros</span><span class="ftag">Variedades</span></div></div>
+    <div class="fc"><div class="fi" style="background:#e8f4ff">🔬</div><h3>Ensayos de Campo</h3><p>Planifica y documenta ensayos agronómicos con resultados comparativos. Anota observaciones, adjunta fotos y extrae conclusiones.</p><div class="ftags"><span class="ftag">Ensayos</span><span class="ftag">Comparativas</span><span class="ftag">Informes</span></div></div>
+    <div class="fc"><div class="fi" style="background:#fff8e8">🕐</div><h3>Registro Horario</h3><p>Anota horas trabajadas por operario, parcela o tarea. Cumple con la normativa laboral y optimiza el tiempo en tu finca.</p><div class="ftags"><span class="ftag">Control horario</span><span class="ftag">Operarios</span><span class="ftag">Normativa</span></div></div>
+    <div class="fc"><div class="fi" style="background:#f0fff4">📝</div><h3>Notas de Campo</h3><p>Captura observaciones, incidencias o ideas en el momento. Vincula notas a parcelas, cultivos o fechas.</p><div class="ftags"><span class="ftag">Diario</span><span class="ftag">Incidencias</span><span class="ftag">Observaciones</span></div></div>
+    <div class="fc"><div class="fi" style="background:#fff0f8">💶</div><h3>Ventas y Gastos</h3><p>Registra ingresos y gastos por campaña, cliente o producto. Visualiza tu rentabilidad en tiempo real.</p><div class="ftags"><span class="ftag">Rentabilidad</span><span class="ftag">Facturación</span><span class="ftag">Contabilidad</span></div></div>
+    <div class="fc"><div class="fi" style="background:#f0f8ff">📦</div><h3>Control de Stock</h3><p>Gestiona inventario de semillas, fitosanitarios y materiales. Alertas de stock mínimo para no quedarte sin suministros.</p><div class="ftags"><span class="ftag">Inventario</span><span class="ftag">Alertas</span><span class="ftag">Suministros</span></div></div>
+  </div>
+</section>
+
+<section class="how" id="como">
+  <div class="stag">Cómo funciona</div>
+  <h2 class="stit">En marcha en minutos</h2>
+  <p class="ssub">Sin instalaciones, sin complicaciones. Empieza a digitalizar tu campo hoy mismo.</p>
+  <div class="steps">
+    <div class="step"><div class="stn">1</div><h3>Regístrate</h3><p>Crea tu cuenta en segundos. Sin tarjeta de crédito para la prueba gratuita.</p></div>
+    <div class="step"><div class="stn">2</div><h3>Configura tu finca</h3><p>Añade parcelas, cultivos y operarios en pocos pasos guiados.</p></div>
+    <div class="step"><div class="stn">3</div><h3>Digitaliza y registra</h3><p>Anota partidas, horas, ventas y stock desde el móvil o el ordenador.</p></div>
+    <div class="step"><div class="stn">4</div><h3>Analiza y decide mejor</h3><p>Consulta informes y gráficas basadas en datos reales de tu explotación.</p></div>
+  </div>
+</section>
+
+<section class="pricing" id="planes">
+  <div class="stag">Planes</div>
+  <h2 class="stit">Elige tu plan</h2>
+  <p class="ssub">Sin permanencia. Cancela cuando quieras. Adaptado al tamaño de tu explotación.</p>
+  <div class="plans">
+    <div class="plan">
+      <div class="pn">Básico</div><div class="pp"><sup>€</sup>0</div><div class="ppr">Gratis para siempre</div>
+      <ul><li>Hasta 5 partidas de semillero</li><li>Registro horario básico</li><li>Notas de campo</li><li>Stock (50 productos)</li><li>Soporte por email</li></ul>
+      <a href="#contacto" class="plb">Empezar gratis</a>
+    </div>
+    <div class="plan feat">
+      <div class="pb">⭐ Más popular</div>
+      <div class="pn">Profesional</div><div class="pp"><sup>€</sup>29</div><div class="ppr">al mes · IVA incluido</div>
