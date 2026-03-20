@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -225,3 +226,67 @@
     <div class="plan feat">
       <div class="pb">⭐ Más popular</div>
       <div class="pn">Profesional</div><div class="pp"><sup>€</sup>29</div><div class="ppr">al mes · IVA incluido</div>
+      <ul><li>Semilleros y ensayos ilimitados</li><li>Registro horario + informes</li><li>Ventas y gastos completos</li><li>Stock ilimitado</li><li>Dashboard y gráficas</li><li>Soporte prioritario</li></ul>
+      <a href="#contacto" class="plb">Probar 30 días gratis</a>
+    </div>
+    <div class="plan">
+      <div class="pn">Empresa</div><div class="pp" style="font-size:1.5rem">A medida</div><div class="ppr">para grandes explotaciones</div>
+      <ul><li>Todo lo del plan Profesional</li><li>Múltiples usuarios y roles</li><li>Integración con ERP</li><li>API personalizada</li><li>Gestor dedicado</li><li>Formación presencial</li></ul>
+      <a href="#contacto" class="plb">Solicitar propuesta</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="cw">
+    <div class="ci">
+      <div class="stag">Contacto</div>
+      <h2>¿Hablamos?<br>Estamos aquí para ti</h2>
+      <p>Cuéntanos tu situación y te ayudamos a encontrar la mejor solución para digitalizar tu explotación. Respondemos en menos de 24 horas.</p>
+      <a class="cit" href="tel:6666"><div class="citx">📞</div><div><div class="citl">Teléfono</div><div class="citv">6666</div></div></a>
+      <a class="cit" href="mailto:info@cotecha.es"><div class="citx">✉️</div><div><div class="citl">Email</div><div class="citv">info@cotecha.es</div></div></a>
+      <div class="cit"><div class="citx">🕐</div><div><div class="citl">Horario</div><div class="citv">Lun – Vie, 9:00 – 18:00</div></div></div>
+    </div>
+    <div class="cf">
+      <h3>Envíanos un mensaje 💬</h3>
+      <form id="cForm" onsubmit="enviar(event)">
+        <div class="fr2">
+          <div class="fg2"><label>Nombre *</label><input type="text" placeholder="Tu nombre" required /></div>
+          <div class="fg2"><label>Explotación</label><input type="text" placeholder="Nombre de tu finca" /></div>
+        </div>
+        <div class="fr2">
+          <div class="fg2"><label>Email *</label><input type="email" placeholder="tu@email.com" required /></div>
+          <div class="fg2"><label>Teléfono</label><input type="tel" placeholder="600 000 000" /></div>
+        </div>
+        <div class="fg2">
+          <label>¿Qué te interesa?</label>
+          <select>
+            <option value="">Seleccionar módulo...</option>
+            <option>Partidas de semillero</option><option>Ensayos de campo</option>
+            <option>Registro horario</option><option>Ventas y gastos</option>
+            <option>Control de stock</option><option>Plataforma completa</option>
+          </select>
+        </div>
+        <div class="fg2"><label>Mensaje *</label><textarea placeholder="Cuéntanos sobre tu explotación y qué necesitas digitalizar..." required></textarea></div>
+        <button type="submit" class="fsub">Enviar mensaje 🌱</button>
+      </form>
+      <div class="fok" id="fok">✅ ¡Mensaje enviado! Te contactaremos pronto.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">Co<span>Techa</span></div>
+  <div class="fsl">🌾 Cosecha + Tech — Cosechando tecnología</div>
+  <p>© 2026 CoTecha · Tecnología para la agricultura digital · Tel: 6666</p>
+</footer>
+
+<script>
+  function enviar(e) {
+    e.preventDefault();
+    document.getElementById('cForm').style.display = 'none';
+    document.getElementById('fok').style.display = 'block';
+  }
+</script>
+</body>
+</html>
