@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoTecha – Cosecha + Tech</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -18,10 +18,11 @@
     .nl { display:flex;align-items:center;gap:10px;text-decoration:none; }
     .ni { width:38px;height:38px;background:linear-gradient(135deg,var(--gl),var(--ta));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px; }
     .nt { color:#fff;font-size:1.3rem;font-weight:800; } .nt span { color:var(--gl); }
-    nav ul { display:flex;gap:28px;list-style:none; }
+    nav ul { display:flex;gap:20px;list-style:none;align-items:center; }
     nav ul a { color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s; }
     nav ul a:hover { color:var(--gl); }
     .ncta { background:linear-gradient(135deg,var(--g),var(--ta));color:#fff !important;padding:8px 20px;border-radius:25px;font-weight:600 !important; }
+    .nlogin { background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.3);color:#fff !important;padding:8px 20px;border-radius:25px;font-weight:600 !important; }
     .hero { min-height:100vh;background:radial-gradient(ellipse at 70% 50%,rgba(0,180,216,.12) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(64,145,108,.2) 0%,transparent 50%),linear-gradient(160deg,var(--gd) 0%,#0d2418 50%,#061a2e 100%);display:flex;align-items:center;padding:100px 6% 60px;position:relative;overflow:hidden; }
     .hero::before { content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(116,198,157,.15) 1px,transparent 0);background-size:40px 40px;pointer-events:none; }
     .par { position:absolute;border-radius:50%;animation:fl 6s ease-in-out infinite;pointer-events:none; }
@@ -43,7 +44,7 @@
     .hv { position:absolute;right:4%;top:50%;transform:translateY(-50%);width:min(500px,44vw);z-index:2; }
     .dm { background:rgba(255,255,255,.05);border:1px solid rgba(116,198,157,.2);border-radius:20px;backdrop-filter:blur(10px);padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.4); }
     .dh { display:flex;align-items:center;gap:8px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(116,198,157,.15); }
-    .dd{width:10px;height:10px;border-radius:50%;} .dt{color:rgba(255,255,255,.6);font-size:.75rem;font-weight:600;margin-left:auto;letter-spacing:.5px;}
+    .dd{width:10px;height:10px;border-radius:50%;} .dtx{color:rgba(255,255,255,.6);font-size:.75rem;font-weight:600;margin-left:auto;letter-spacing:.5px;}
     .dg { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px; }
     .dc { background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px; }
     .dcl{color:rgba(255,255,255,.4);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
@@ -74,6 +75,30 @@
     .step{text-align:center;}
     .stn{width:58px;height:58px;background:linear-gradient(135deg,var(--g),var(--ta));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;color:#fff;margin:0 auto 14px;box-shadow:0 8px 24px rgba(64,145,108,.4);}
     .step h3{color:#fff;font-size:1rem;font-weight:700;margin-bottom:7px;} .step p{color:rgba(255,255,255,.55);font-size:.86rem;line-height:1.6;}
+    /* SLIDER */
+    .mockups{padding:80px 0 60px;background:linear-gradient(135deg,#0d2418 0%,var(--gd) 100%);position:relative;overflow:hidden;text-align:center;}
+    .mockups::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(116,198,157,.08) 1px,transparent 0);background-size:50px 50px;pointer-events:none;}
+    .mockups .stag{background:rgba(116,198,157,.15);color:var(--gl);}
+    .mockups .stit{color:#fff;}
+    .mockups .ssub{color:rgba(255,255,255,.55);margin-bottom:2rem;}
+    .sl-outer{display:flex;align-items:center;justify-content:center;gap:20px;padding:0 20px;position:relative;z-index:2;}
+    .sl-win{width:370px;height:683px;overflow:hidden;border-radius:32px;box-shadow:0 32px 80px rgba(0,0,0,.7);flex-shrink:0;background:#111;}
+    .sl-track{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1);}
+    .sl-slide{flex:0 0 370px;width:370px;}
+    .sl-slide img{width:370px;height:683px;object-fit:cover;object-position:top;display:block;}
+    .sl-lbl{background:rgba(0,0,0,.6);color:#fff;font-size:.82rem;font-weight:700;padding:.5rem 1rem;text-align:center;}
+    .sl-arrow{width:52px;height:52px;border-radius:50%;background:rgba(116,198,157,.15);border:2px solid rgba(116,198,157,.4);color:var(--gl);font-size:1.5rem;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1;padding:0;}
+    .sl-arrow:hover{background:rgba(116,198,157,.4);}
+    .sl-dots{display:flex;justify-content:center;gap:8px;margin-top:18px;position:relative;z-index:2;}
+    .sl-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;padding:0;transition:all .25s;}
+    .sl-dot.on{background:var(--gl);width:24px;border-radius:5px;}
+    @media(max-width:500px){
+      .sl-win{width:280px;height:518px;border-radius:22px;}
+      .sl-slide{flex:0 0 280px;width:280px;}
+      .sl-slide img{width:280px;height:518px;}
+      .sl-arrow{width:40px;height:40px;font-size:1.2rem;}
+    }
+    /* PRICING */
     .pricing{padding:100px 6%;background:var(--ow);}
     .plans{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
     .plan{background:#fff;border:1.5px solid #e2f0e8;border-radius:24px;padding:34px 30px;width:295px;transition:transform .25s,box-shadow .25s;}
@@ -89,6 +114,7 @@
     .plb{display:block;text-align:center;text-decoration:none;padding:11px;border-radius:50px;font-weight:700;font-size:.88rem;border:1.5px solid var(--g);color:var(--g);transition:background .2s,color .2s;}
     .plan.feat .plb{background:linear-gradient(135deg,var(--g),var(--ta));color:#fff;border:none;box-shadow:0 8px 24px rgba(64,145,108,.3);}
     .plb:hover{background:var(--g);color:#fff;} .plan.feat .plb:hover{opacity:.9;}
+    /* CONTACT */
     .contact{padding:100px 6%;background:#fff;}
     .cw{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
     .ci h2{font-size:clamp(1.8rem,2.5vw,2.3rem);font-weight:800;margin-bottom:14px;} .ci p{color:var(--tm);line-height:1.7;margin-bottom:28px;}
@@ -99,42 +125,27 @@
     .cf{background:var(--ow);border:1.5px solid #e2f0e8;border-radius:24px;padding:34px;}
     .cf h3{font-size:1.25rem;font-weight:800;margin-bottom:22px;}
     .fg2{margin-bottom:16px;} .fg2 label{display:block;font-size:.8rem;font-weight:600;margin-bottom:5px;}
-    .fg2 input,.fg2 textarea,.fg2 select{width:100%;padding:11px 15px;border:1.5px solid #dde8e0;border-radius:10px;font-family:inherit;font-size:.9rem;background:#fff;color:var(--td);outline:none;transition:border-color .2s,box-shadow .2s;}
+    .fg2 input,.fg2 textarea,.fg2 select{width:100%;padding:11px 15px;border:1.5px solid #dde8e0;border-radius:10px;font-family:inherit;font-size:.9rem;background:#fff;color:var(--td);outline:none;transition:border-color .2s;}
     .fg2 input:focus,.fg2 textarea:focus,.fg2 select:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(64,145,108,.1);}
     .fg2 textarea{resize:vertical;min-height:105px;}
     .fr2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
-    .fsub{width:100%;padding:13px;background:linear-gradient(135deg,var(--g),var(--ta));color:#fff;border:none;border-radius:50px;font-size:.97rem;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s;box-shadow:0 8px 24px rgba(64,145,108,.3);}
-    .fsub:hover{opacity:.9;transform:translateY(-1px);}
-    .fsub:disabled{opacity:0.6;cursor:not-allowed;}
+    .fsub{width:100%;padding:13px;background:linear-gradient(135deg,var(--g),var(--ta));color:#fff;border:none;border-radius:50px;font-size:.97rem;font-weight:700;cursor:pointer;transition:opacity .2s;box-shadow:0 8px 24px rgba(64,145,108,.3);}
+    .fsub:hover{opacity:.9;} .fsub:disabled{opacity:0.6;cursor:not-allowed;}
     .fok{display:none;text-align:center;padding:20px;color:var(--gm);font-weight:600;font-size:1rem;}
     footer{background:var(--gd);padding:44px 6% 28px;text-align:center;border-top:1px solid rgba(116,198,157,.15);}
     .flogo{font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:5px;} .flogo span{color:var(--gl);}
     .fsl{color:var(--gold);font-size:.85rem;font-weight:600;margin-bottom:16px;} footer p{color:rgba(255,255,255,.3);font-size:.77rem;}
-    @media(max-width:900px){.hv{display:none;}.cw{grid-template-columns:1fr;}.fr2{grid-template-columns:1fr;}nav ul{display:none;}.ss{gap:32px;}}
+    /* HAMBURGER */
+    .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
+    .ham span{width:24px;height:2px;background:rgba(255,255,255,.85);border-radius:2px;transition:all .3s;display:block;}
+    .mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(26,58,42,0.98);backdrop-filter:blur(10px);border-bottom:1px solid rgba(116,198,157,.2);padding:1rem 6%;z-index:99;flex-direction:column;gap:0;}
+    .mobile-nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.95rem;font-weight:500;padding:.75rem 0;border-bottom:1px solid rgba(116,198,157,.1);display:block;}
+    .mobile-nav a:last-child{border-bottom:none;}
+    .mobile-nav .ncta{background:linear-gradient(135deg,var(--g),var(--ta));color:#fff !important;padding:.75rem 1.25rem;border-radius:12px;text-align:center;margin-top:.5rem;border-bottom:none !important;}
+    .mobile-nav .nlogin{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.25);color:#fff !important;padding:.75rem 1.25rem;border-radius:12px;text-align:center;margin-top:.35rem;border-bottom:none !important;}
+    .mobile-nav.open{display:flex;}
+    @media(max-width:900px){.hv{display:none;}.cw{grid-template-columns:1fr;}.fr2{grid-template-columns:1fr;}nav ul{display:none;}.ss{gap:32px;}.ham{display:flex;}}
     @media(max-width:600px){.hero,.features,.how,.pricing,.contact{padding-left:5%;padding-right:5%;}}
-
-    /* MOCKUPS SECTION */
-    .mockups{padding:100px 6%;background:linear-gradient(135deg,var(--gd) 0%,#0d2418 100%);position:relative;overflow:hidden;text-align:center;}
-    .mockups::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(116,198,157,.08) 1px,transparent 0);background-size:50px 50px;pointer-events:none;}
-    .mockups .stag{background:rgba(116,198,157,.15);color:var(--gl);}
-    .mockups .stit{color:#fff;}
-    .mockups .ssub{color:rgba(255,255,255,.6);}
-    /* CAROUSEL */
-    .cs-wrap{display:flex;align-items:center;justify-content:center;gap:1.5rem;position:relative;z-index:2;}
-    .cs-viewport{width:320px;overflow:hidden;position:relative;}
-    @media(max-width:600px){.cs-viewport{width:260px;}}
-    .cs-track{display:flex;transition:transform 0.4s cubic-bezier(.4,0,.2,1);}
-    .cs-slide{flex:0 0 320px;display:flex;flex-direction:column;align-items:center;}
-    @media(max-width:600px){.cs-slide{flex:0 0 260px;}}
-    .cs-slide img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top center;border-radius:32px;box-shadow:0 24px 64px rgba(0,0,0,.6);display:block;}
-    @media(max-width:600px){.cs-slide img{border-radius:24px;}}
-    .cs-label{color:rgba(255,255,255,.65);font-size:0.82rem;font-weight:600;margin-top:1rem;letter-spacing:.4px;}
-    .cs-btn{width:48px;height:48px;border-radius:50%;background:rgba(116,198,157,.15);border:1.5px solid rgba(116,198,157,.35);color:var(--gl);font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0;z-index:3;}
-    .cs-btn:hover{background:rgba(116,198,157,.35);}
-    .cs-dots{display:flex;justify-content:center;gap:8px;margin-top:1.75rem;position:relative;z-index:2;}
-    .cs-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .25s;display:inline-block;}
-    .cs-dot.active{background:var(--gl);width:24px;border-radius:4px;}
-    @media(max-width:600px){.cs-btn{width:38px;height:38px;font-size:1rem;}}
   </style>
 </head>
 <body>
@@ -150,8 +161,20 @@
     <li><a href="#como">Cómo funciona</a></li>
     <li><a href="#planes">Planes</a></li>
     <li><a href="#contacto" class="ncta">Contactar</a></li>
-    <li><a href="https://cotecha.github.io/app" style="background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.3);color:#fff;padding:8px 20px;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">→ Iniciar sesión</a></li>
+    <li><a href="https://cotecha.github.io/app" class="nlogin">→ Iniciar sesión</a></li>
   </ul>
+  <button class="ham" id="ham-btn" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#features" onclick="closeMobileNav()">Funciones</a>
+  <a href="#modulos" onclick="closeMobileNav()">Módulos</a>
+  <a href="#como" onclick="closeMobileNav()">Cómo funciona</a>
+  <a href="#planes" onclick="closeMobileNav()">Planes</a>
+  <a href="#contacto" class="ncta" onclick="closeMobileNav()">Contactar</a>
+  <a href="https://cotecha.github.io/app" class="nlogin">→ Iniciar sesión</a>
 </nav>
 
 <section class="hero">
@@ -172,7 +195,7 @@
         <div class="dd" style="background:#ff5f57"></div>
         <div class="dd" style="background:#febc2e"></div>
         <div class="dd" style="background:#28c840"></div>
-        <div class="dt">COTECHA DASHBOARD</div>
+        <div class="dtx">COTECHA DASHBOARD</div>
       </div>
       <div class="dg">
         <div class="dc"><div class="dcl">🌱 Semilleros</div><div class="dcv">24 <span>+3 semana</span></div></div>
@@ -190,7 +213,7 @@
 </section>
 
 <div class="ss">
-  <div class="si"><div class="sn">5</div><div class="sl">Módulos integrados</div></div>
+  <div class="si"><div class="sn">6</div><div class="sl">Módulos integrados</div></div>
   <div class="si"><div class="sn">100%</div><div class="sl">En la nube</div></div>
   <div class="si"><div class="sn">24/7</div><div class="sl">Acceso desde cualquier dispositivo</div></div>
   <div class="si"><div class="sn">0€</div><div class="sl">El primer mes gratis</div></div>
@@ -204,8 +227,9 @@
     <div class="fc"><div class="fi" style="background:#e8f8f0">🌱</div><h3>Control de Semillero</h3><p>Registra y controla cada bandeja por cultivo, ubicación y tipo. Dashboard con gráficas por semana, mes y año. Trazabilidad completa desde el origen.</p><div class="ftags"><span class="ftag">Bandejas</span><span class="ftag">Cultivos</span><span class="ftag">Dashboard</span></div></div>
     <div class="fc"><div class="fi" style="background:#fff8e8">🕐</div><h3>Control de Horas</h3><p>Registra horas trabajadas por empleado, cultivo y actividad. Controla jornadas, gestiona tu plantilla y cumple con la normativa laboral vigente.</p><div class="ftags"><span class="ftag">Empleados</span><span class="ftag">Jornadas</span><span class="ftag">Normativa</span></div></div>
     <div class="fc"><div class="fi" style="background:#f0f8ff">📦</div><h3>Control de Stock</h3><p>Gestiona el inventario de semillas, fitosanitarios y materiales. Alertas de stock mínimo para no quedarte nunca sin suministros.</p><div class="ftags"><span class="ftag">Inventario</span><span class="ftag">Alertas</span><span class="ftag">Suministros</span></div></div>
-    <div class="fc"><div class="fi" style="background:#f0fff4">📝</div><h3>Notas de Campo</h3><p>Captura observaciones, incidencias o ideas en el momento. Vincula notas a parcelas, cultivos o fechas concretas.</p><div class="ftags"><span class="ftag">Diario</span><span class="ftag">Incidencias</span><span class="ftag">Observaciones</span></div></div>
-    <div class="fc"><div class="fi" style="background:#fff0f8">💶</div><h3>Ventas y Gastos</h3><p>Registra ingresos y gastos por campaña, cliente o producto. Visualiza tu rentabilidad en tiempo real con gráficas claras.</p><div class="ftags"><span class="ftag">Rentabilidad</span><span class="ftag">Facturación</span><span class="ftag">Contabilidad</span></div></div>
+    <div class="fc"><div class="fi" style="background:#f0fff4">📝</div><h3>Notas de Campo</h3><p>Captura observaciones, incidencias o ideas en el momento. Con GPS, fotos y seguimiento de estado.</p><div class="ftags"><span class="ftag">GPS</span><span class="ftag">Incidencias</span><span class="ftag">Fotos</span></div></div>
+    <div class="fc"><div class="fi" style="background:#f0f4ff">📍</div><h3>Geo Tracking</h3><p>Seguimiento GPS de presencia en zonas. Registra tiempo por zona, entradas y salidas en tiempo real.</p><div class="ftags"><span class="ftag">GPS</span><span class="ftag">Zonas</span><span class="ftag">Tiempo real</span></div></div>
+    <div class="fc"><div class="fi" style="background:#f0f9ff">🌤️</div><h3>Clima Agrícola</h3><p>Datos históricos de temperatura, humedad, DPV, precipitaciones y radiación solar de tu finca.</p><div class="ftags"><span class="ftag">Temperatura</span><span class="ftag">Humedad</span><span class="ftag">DPV</span></div></div>
   </div>
 </section>
 
@@ -224,17 +248,24 @@
 <section class="mockups" id="modulos">
   <div class="stag">Módulos en acción</div>
   <h2 class="stit">Todo lo que necesita tu finca,<br>en tu bolsillo</h2>
-  <p class="ssub" style="margin-bottom:2.5rem;">6 módulos integrados, diseñados para el campo. Desliza para explorarlos.</p>
-  <div class="cs-wrap">
-    <button class="cs-btn cs-prev" onclick="csGo(csCur-1)">&#8592;</button>
-    <div class="cs-viewport" id="cs-viewport">
-      <div class="cs-track" id="cs-track">
-        <div class="cs-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%201.jpg" alt="Hub — Mis módulos" loading="lazy"/><p class="cs-label">Hub — Mis módulos</p></div><div class="cs-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%203.jpg" alt="Control de Producción" loading="lazy"/><p class="cs-label">Control de Producción</p></div><div class="cs-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%204.jpg" alt="Dashboard — Gráficas" loading="lazy"/><p class="cs-label">Dashboard — Gráficas</p></div><div class="cs-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%205.jpg" alt="Control de Horas" loading="lazy"/><p class="cs-label">Control de Horas</p></div><div class="cs-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%209.jpg" alt="Control de Stock" loading="lazy"/><p class="cs-label">Control de Stock</p></div><div class="cs-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%206.jpg" alt="Clima — KPIs" loading="lazy"/><p class="cs-label">Clima — KPIs</p></div><div class="cs-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%207.jpg" alt="Clima — Humedad y DPV" loading="lazy"/><p class="cs-label">Clima — Humedad y DPV</p></div><div class="cs-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%208.jpg" alt="Clima — Radiación solar" loading="lazy"/><p class="cs-label">Clima — Radiación solar</p></div>
+  <p class="ssub">Desliza para explorar los módulos</p>
+  <div class="sl-outer">
+    <button class="sl-arrow" id="sl-prev">&#8592;</button>
+    <div class="sl-win" id="sl-win">
+      <div class="sl-track" id="sl-track">
+        <div class="sl-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%201.jpg" alt="Hub" loading="lazy"/><div class="sl-lbl">Hub — Mis módulos</div></div>
+        <div class="sl-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%203.jpg" alt="Produccion" loading="lazy"/><div class="sl-lbl">Control de Producción</div></div>
+        <div class="sl-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%204.jpg" alt="Dashboard" loading="lazy"/><div class="sl-lbl">Dashboard — Gráficas</div></div>
+        <div class="sl-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%205.jpg" alt="Horas" loading="lazy"/><div class="sl-lbl">Control de Horas</div></div>
+        <div class="sl-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%209.jpg" alt="Stock" loading="lazy"/><div class="sl-lbl">Control de Stock</div></div>
+        <div class="sl-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%206.jpg" alt="Clima" loading="lazy"/><div class="sl-lbl">Clima — KPIs</div></div>
+        <div class="sl-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%207.jpg" alt="Clima HR" loading="lazy"/><div class="sl-lbl">Clima — Humedad y DPV</div></div>
+        <div class="sl-slide"><img src="https://raw.githubusercontent.com/CoTecha/home/main/View%208.jpg" alt="Clima Rad" loading="lazy"/><div class="sl-lbl">Clima — Radiación solar</div></div>
       </div>
     </div>
-    <button class="cs-btn cs-next" onclick="csGo(csCur+1)">&#8594;</button>
+    <button class="sl-arrow" id="sl-next">&#8594;</button>
   </div>
-  <div class="cs-dots" id="cs-dots"><span class="cs-dot active" onclick="csGo(0)"></span><span class="cs-dot" onclick="csGo(1)"></span><span class="cs-dot" onclick="csGo(2)"></span><span class="cs-dot" onclick="csGo(3)"></span><span class="cs-dot" onclick="csGo(4)"></span><span class="cs-dot" onclick="csGo(5)"></span><span class="cs-dot" onclick="csGo(6)"></span><span class="cs-dot" onclick="csGo(7)"></span></div>
+  <div class="sl-dots" id="sl-dots"></div>
 </section>
 
 <section class="pricing" id="planes">
@@ -286,7 +317,7 @@
       <a href="#contacto" class="plb">Solicitar propuesta</a>
     </div>
   </div>
-  <p style="text-align:center;margin-top:2rem;font-size:0.88rem;color:var(--tm);">¿Tienes dudas sobre qué plan se adapta mejor a tu finca? <a href="#contacto" style="color:var(--g);font-weight:600;text-decoration:none;">Escríbenos y te asesoramos.</a></p>
+  <p style="text-align:center;margin-top:2rem;font-size:0.88rem;color:var(--tm);">¿Tienes dudas? <a href="#contacto" style="color:var(--g);font-weight:600;text-decoration:none;">Escríbenos y te asesoramos.</a></p>
 </section>
 
 <section class="contact" id="contacto">
@@ -295,8 +326,8 @@
       <div class="stag">Contacto</div>
       <h2>¿Hablamos?<br>Estamos aquí para ti</h2>
       <p>Cuéntanos tu situación y te ayudamos a encontrar la mejor solución para digitalizar tu explotación. Respondemos en menos de 24 horas.</p>
-      <a class="cit" href="tel:+34 624 71 90 60"><div class="citx">📞</div><div><div class="citl">Teléfono</div><div class="citv">+34 624 71 90 60</div></div></a>
-      <a class="cit" href="/cdn-cgi/l/email-protection#20434f54454348410e41505060474d41494c0e434f4d"><div class="citx">✉️</div><div><div class="citl">Email</div><div class="citv">cotecha.app<!-- -->@gmail.com</div></div></a>
+      <a class="cit" href="tel:+34624719060"><div class="citx">📞</div><div><div class="citl">Teléfono</div><div class="citv">+34 624 71 90 60</div></div></a>
+      <a class="cit" href="mailto:cotecha.app@gmail.com"><div class="citx">✉️</div><div><div class="citl">Email</div><div class="citv">cotecha.app@gmail.com</div></div></a>
       <div class="cit"><div class="citx">🕐</div><div><div class="citl">Horario</div><div class="citv">Lun – Vie, 9:00 – 18:00</div></div></div>
     </div>
     <div class="cf">
@@ -314,17 +345,17 @@
           <label>¿Qué te interesa?</label>
           <select name="interes">
             <option value="">Seleccionar módulo...</option>
-            <option>Partidas de semillero</option>
-            <option>Ensayos de campo</option>
-            <option>Registro horario</option>
-            <option>Ventas y gastos</option>
-            <option>Control de stock</option>
+            <option>Control de Producción</option>
+            <option>Control de Horas</option>
+            <option>Control de Stock</option>
+            <option>Notas de Campo</option>
+            <option>Geo Tracking</option>
+            <option>Clima Agrícola</option>
             <option>Plataforma completa</option>
           </select>
         </div>
         <div class="fg2"><label>Mensaje *</label><textarea name="mensaje" placeholder="Cuéntanos sobre tu explotación y qué necesitas digitalizar..." required></textarea></div>
-        <input type="hidden" name="_subject" value="Nuevo mensaje desde CoTecha.es" />
-        <input type="hidden" name="_next" value="https://cotecha.github.io/app/" />
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde CoTecha" />
         <button type="submit" class="fsub" id="submitBtn">Enviar mensaje 🌱</button>
       </form>
       <div class="fok" id="fok">✅ ¡Mensaje enviado! Te contactaremos en menos de 24 horas.</div>
@@ -338,66 +369,109 @@
   <p>© 2026 CoTecha · Tecnología para la agricultura digital · Tel: +34 624 71 90 60</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ─── CAROUSEL ───
-var csCur=0;
-var csTotal=0;
-function csInit(){
-  var track=document.getElementById('cs-track');
-  if(!track)return;
-  csTotal=track.querySelectorAll('.cs-slide').length;
-  csGo(0);
+<script>
+// HAMBURGER
+function closeMobileNav() {
+  document.getElementById('mobile-nav').classList.remove('open');
 }
-function csGo(idx){
-  var track=document.getElementById('cs-track');
-  if(!track)return;
-  if(idx<0)idx=0;
-  if(idx>csTotal-1)idx=csTotal-1;
-  csCur=idx;
-  var slide=track.querySelectorAll('.cs-slide')[0];
-  var w=slide?slide.offsetWidth:320;
-  track.style.transform='translateX(-'+(csCur*w)+'px)';
-  var dots=document.querySelectorAll('.cs-dot');
-  dots.forEach(function(d,i){d.classList.toggle('active',i===csCur);});
-}
-// Touch swipe
-(function(){
-  var vp=document.getElementById('cs-viewport');
-  if(!vp)return;
-  var sx=0,sy=0;
-  vp.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
-  vp.addEventListener('touchend',function(e){
-    var dx=sx-e.changedTouches[0].clientX;
-    var dy=sy-e.changedTouches[0].clientY;
-    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){
-      csGo(dx>0?csCur+1:csCur-1);
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('ham-btn').addEventListener('click', function() {
+    document.getElementById('mobile-nav').classList.toggle('open');
+  });
+  document.addEventListener('click', function(e) {
+    var nav = document.getElementById('mobile-nav');
+    var btn = document.getElementById('ham-btn');
+    if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
+      nav.classList.remove('open');
     }
-  },{passive:true});
-})();
-window.addEventListener('resize',function(){csGo(csCur);});
-window.addEventListener('load',function(){csInit();});
+  });
+});
 
-const form = document.getElementById('cForm');
-const btn = document.getElementById('submitBtn');
-const fok = document.getElementById('fok');
+// SLIDER — variables y función global, disponibles inmediatamente
+var slIdx = 0;
+var slTotal = 8;
 
-form.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  btn.disabled = true;
-  btn.textContent = 'Enviando…';
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      form.style.display = 'none';
-      fok.style.display = 'block';
-    } else {
+function slGo(n) {
+  if (n < 0) n = 0;
+  if (n >= slTotal) n = slTotal - 1;
+  slIdx = n;
+  var W = window.innerWidth <= 500 ? 280 : 370;
+  var track = document.getElementById('sl-track');
+  if (track) track.style.transform = 'translateX(-' + (slIdx * W) + 'px)';
+  var dots = document.querySelectorAll('#sl-dots .sl-dot');
+  for (var i = 0; i < dots.length; i++) {
+    dots[i].className = i === slIdx ? 'sl-dot on' : 'sl-dot';
+  }
+}
+
+// Construir dots y asignar eventos al cargar el DOM
+document.addEventListener('DOMContentLoaded', function() {
+  // Dots
+  var dotsEl = document.getElementById('sl-dots');
+  for (var i = 0; i < slTotal; i++) {
+    var d = document.createElement('button');
+    d.className = i === 0 ? 'sl-dot on' : 'sl-dot';
+    d.setAttribute('data-i', i);
+    d.onclick = function() { slGo(parseInt(this.getAttribute('data-i'))); };
+    dotsEl.appendChild(d);
+  }
+
+  // Flechas
+  document.getElementById('sl-prev').onclick = function() { slGo(slIdx - 1); };
+  document.getElementById('sl-next').onclick = function() { slGo(slIdx + 1); };
+
+  // Swipe
+  var win = document.getElementById('sl-win');
+  var sx = 0, sy = 0;
+  win.addEventListener('touchstart', function(e) {
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+  }, { passive: true });
+  win.addEventListener('touchend', function(e) {
+    var dx = sx - e.changedTouches[0].clientX;
+    var dy = sy - e.changedTouches[0].clientY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      slGo(dx > 0 ? slIdx + 1 : slIdx - 1);
+    }
+  }, { passive: true });
+
+  // Teclado
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft')  slGo(slIdx - 1);
+    if (e.key === 'ArrowRight') slGo(slIdx + 1);
+  });
+
+  window.addEventListener('resize', function() { slGo(slIdx); });
+});
+
+// FORMULARIO
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('cForm');
+  var btn  = document.getElementById('submitBtn');
+  var fok  = document.getElementById('fok');
+  if (!form) return;
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    try {
+      var res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        fok.style.display = 'block';
+      } else {
+        throw new Error('Error');
+      }
+    } catch(err) {
       btn.disabled = false;
-      btn.textContent = 'Enviar mensaje 🌱';
-      alert('Hubo un error al enviar. Por favor inténtalo de nuevo.');
+      btn.textContent = 'Enviar mensaje';
+      alert('Hubo un error al enviar. Intentalo de nuevo.');
     }
-  } catch(err) {
-    btn.disabled 
+  });
+});
+</script>
+</body>
+</html>
